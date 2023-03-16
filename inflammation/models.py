@@ -36,3 +36,7 @@ def daily_min(data):
 #blank function to test pytest-cov
 def funcitional(var):
     return(var)
+
+def daily_std(data):
+    """Calculate the daily standard deviation  of a 2d inflammation data array."""
+    return np.std(data, axis=0)
