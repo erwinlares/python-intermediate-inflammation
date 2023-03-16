@@ -112,10 +112,14 @@ def test_daily_min_string():
 #                            [0, 0]])
 #     test_result = np.array([0, 0])
 @pytest.mark.parametrize(
-    "test, expected",
+    "test, expected,expect_raises",
     [
-        ([1, 2, 3, 4, 5], [1.4142135623730951]),
-        ([23, 4, 6, 457, 65, 7, 45, 8], 145.13565852332775)
+        ([1, 2, 3, 4, 5], [1.4142135623730951], None),
+        ([23, 4, 6, 457, 65, 7, 45, 8], 145.13565852332775, None),
+        (['1', '2', '3', '4', '5'], ['1.4142135623730951'], None),
+        (['1', '2', '3', '4', '5'], ['1.4142135623730951'], ValueError),
+        (['1', '2', '3', '4', '5'], ['0'], ValueError),
+        (['hello'], 'something', 4, ['x'],ValueError),
     ])
 def test_daily_std():
     """Test  daily_std() function."""
