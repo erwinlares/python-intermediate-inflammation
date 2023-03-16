@@ -108,15 +108,14 @@ def test_daily_min_string():
 
 # Code review Test STD code: daily_std() function
 @pytest.mark.parametrize(
-    "test, expected,expect_raises",
+    "test, expected",
     [
-        ([1, 2, 3, 4, 5], [1.4142135623730951], None),
-        ([23, 4, 6, 457, 65, 7, 45, 8], 145.13565852332775, None),
-        (['1', '2', '3', '4', '5'], ['1.4142135623730951'], None),
-        (['1', '2', '3', '4', '5'], ['1.4142135623730951'], ValueError),
-        (['1', '2', '3', '4', '5'], ['0'], ValueError),
-        (['hello'], 'something', 4, ['x'],ValueError),
+        ([1, 2, 3, 4, 5], 1.4142135623730951),
+        ([23, 4, 6, 457, 65, 7, 45, 8], 145.13565852332775),
     ])
-def test_daily_std():
+def test_daily_std(test, expected):
     """Test  daily_std() function."""
+    from inflammation.models import daily_std
+    # print(test, expected)
+
     npt.assert_array_equal(daily_std(np.array(test)), np.array(expected))
