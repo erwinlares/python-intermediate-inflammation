@@ -105,3 +105,18 @@ def test_daily_min_string():
 
     with pytest.raises(TypeError):
         error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
+
+# Code review Test STD code: daily_std() function
+#     test_input = np.array([[0, 0],
+#                            [0, 0],
+#                            [0, 0]])
+#     test_result = np.array([0, 0])
+@pytest.mark.parametrize(
+    "test, expected",
+    [
+        ([1, 2, 3, 4, 5], [1.4142135623730951]),
+        ([23, 4, 6, 457, 65, 7, 45, 8], 145.13565852332775)
+    ])
+def test_daily_std():
+    """Test  daily_std() function."""
+    npt.assert_array_equal(daily_std(np.array(test)), np.array(expected))
