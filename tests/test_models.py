@@ -107,10 +107,6 @@ def test_daily_min_string():
         error_expected = daily_min([['Hello', 'there'], ['General', 'Kenobi']])
 
 # Code review Test STD code: daily_std() function
-#     test_input = np.array([[0, 0],
-#                            [0, 0],
-#                            [0, 0]])
-#     test_result = np.array([0, 0])
 @pytest.mark.parametrize(
     "test, expected,expect_raises",
     [
